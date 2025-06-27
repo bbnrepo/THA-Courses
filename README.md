@@ -1,14 +1,30 @@
 # THA-Courses
 
-# Folder hedera-sdk
+## Folder hedera-sdk
 
-1. 01_account_creation.js
-This exercise demonstrates how to programmatically create a new Hedera account on the Testnet using the Hedera JavaScript SDK. 
+### 1. 01_account_creation.js
+   This exercise demonstrates how to programmatically create a new Hedera account on the Testnet using the Hedera JavaScript SDK.
 
-2. 02_generate_key.js
-This exercise focuses purely on generating different types of cryptographic key pairs supported by Hedera: ED25519 and ECDSA (secp256k1). Understanding how to generate these keys is fundamental, as they are used to secure and control Hedera accounts and transactions. 
+### 2. 02_generate_key.js
+   This exercise focuses purely on generating different types of cryptographic key pairs supported by Hedera: ED25519 and ECDSA (secp256k1). Understanding how to generate these keys is fundamental, as they are used to secure and control Hedera accounts and transactions.
 
-# RUN
-  $ cd hedera-sdk
-  $ npm i
-  $ node <file-name>
+### 3. 03_transfer_HBAR.js
+   This section provides hands-on exercises for sending HBAR and querying the Hedera Mirror Node.
+
+## How To Run
+```bash
+$ cd hedera-sdk
+$ npm i
+```
+
+Create File .env
+Add content to .env:
+
+# .env
+
+MY_ACCOUNT_ID=0.0.XXXXXX (ECDSA Account ID from Hedera Portal)
+MY_PRIVATE_KEY=<Your Testnet Private Key (DER Encoded Private Key) from Hedera Portal>
+
+```bash
+$ node <file-name>
+```
