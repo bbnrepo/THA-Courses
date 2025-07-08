@@ -18,6 +18,9 @@
 ### 2. 02_NFToken.js
    It demonstrates the creation and lifecycle of Non-Fungible Tokens (NFTs) on the Hedera Testnet, including minting NFTs with metadata (IPFS), burning, transferring, and associating them with user accounts. It provides hands-on experience in managing NFT collections using the Hedera JavaScript SDK with real-time traceability via HashScan. 
 
+## Folder hedera-hcs
+An example web app which demonstrates how you can use decentralized pub-sub messaging on the Hedera Consensus Service.
+For More Details: Check the \hedera-hcs\README.md
 ## How To Run
 ```bash
 $ cd <folder-name>
