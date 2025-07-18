@@ -31,6 +31,9 @@ Hands-on to demonstrate Hedera Contract Service using SDK, Hardhat and Foundary.
 ### Using-hardhat
    In this tutorial, you'll learn how to **deploy, mint, and transfer ERC-721 tokens (NFTs)** using **Hardhat**, **Ethers.js**, and **OpenZeppelin contracts** on the **Hedera Testnet**.
    For More Details: Check the \hedera-scs\Using-hardhat\README.md
+### Using-foundry
+   In this tutorial, you'll learn how to deploy, mint, and transfer ERC-20 tokens using Foundry and OpenZeppelin contracts on the Hedera Testnet.
+   For More Details: Check the \hedera-scs\Using-foundry\README.md
 ## How To Run
 ```bash
 $ cd <folder-name>

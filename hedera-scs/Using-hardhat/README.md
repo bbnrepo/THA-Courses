@@ -1,5 +1,4 @@
 
-````markdown
 # 🎓 Sample Hardhat Project — Deploy & Manage NFTs on Hedera
 
 In this tutorial, you'll learn how to **deploy, mint, and transfer ERC-721 tokens (NFTs)** using **Hardhat**, **Ethers.js**, and **OpenZeppelin contracts** on the **Hedera Testnet**.

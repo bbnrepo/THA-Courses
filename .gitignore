@@ -138,3 +138,6 @@ dist
 #hardhat
 cache/
 artifacts/
+
+#foundry
+.gitmodules
