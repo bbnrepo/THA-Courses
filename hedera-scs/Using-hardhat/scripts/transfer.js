@@ -5,7 +5,7 @@ async function main() {
 
 
     // Get the recipient address from command-line args
-    const recipientAddress = "0x00000000000000000000000000000000004b6b8a";
+    const recipientAddress = "<recepient-address>";
     const tokenId = process.argv[3]; // Optional: pass tokenId as well
 
     if (!recipientAddress) {
@@ -17,7 +17,7 @@ async function main() {
 
     const MyToken = await ethers.getContractFactory("MyToken", deployer);
 
-    const contractAddress = "0xCd6b7EDdE6Dc2a0CcD5202518F2b4180859502D0";
+    const contractAddress = "<contract-address>";
     const contract = await MyToken.attach(contractAddress);
 
     console.log(`Transferring tokenId ${tokenIdToTransfer} to ${recipientAddress}`);

@@ -21,6 +21,16 @@
 ## Folder hedera-hcs
 An example web app which demonstrates how you can use decentralized pub-sub messaging on the Hedera Consensus Service.
 For More Details: Check the \hedera-hcs\README.md
+
+## Folder hedera-scs
+Hands-on to demonstrate Hedera Contract Service using SDK, Hardhat and Foundary.
+### Using-SDK
+#### 01_contractTransaction.js
+      This section provides hands-on exercises for deploying simple HelloHedera contract and interacting with contract using Hedera SDK.
+      To Run the file make sure to create .env as per below istructions.
+### Using-hardhat
+   In this tutorial, you'll learn how to **deploy, mint, and transfer ERC-721 tokens (NFTs)** using **Hardhat**, **Ethers.js**, and **OpenZeppelin contracts** on the **Hedera Testnet**.
+   For More Details: Check the \hedera-scs\Using-hardhat\README.md
 ## How To Run
 ```bash
 $ cd <folder-name>
