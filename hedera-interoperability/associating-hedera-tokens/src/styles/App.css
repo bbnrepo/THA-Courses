@@ -243,7 +243,7 @@ code {
 
 .App {
 	width: 100%;
-	min-height: 800px;
+	min-height:100%;
 	text-align: center;
 	flex: 1 0 auto;
 }
@@ -278,8 +278,17 @@ code {
 	letter-spacing: -0.04em;
 	margin: 24px auto;
 	font-weight: 400;
+	text-align: center;
+	padding: 0 1rem;  
+	word-wrap: break-word;
 }
 
+@media (max-width: 480px) {
+	.sub-text {
+		font-size: 18px;
+		margin: 16px auto;
+	}
+}
 .gradient-text {
 	background: -webkit-linear-gradient(left, #60c657 30%, #35aee2 60%);
 	background-clip: text;
@@ -311,17 +320,18 @@ code {
 }
 
 .text-input {
-	width: 100%;
-	max-width: 500px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	background-color: #fff;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-	padding: 10px;
-	font-family: sans-serif;
-	font-size: 16px;
-	color: #000000;
+  width: 100%;
+  max-width: 400px; 
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+  display: block;
+  box-sizing: border-box;
 }
+
 
 .cta-button:hover {
 	background-color: black;
