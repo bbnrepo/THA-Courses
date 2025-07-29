@@ -5,26 +5,29 @@ async function tokenAssociateFcn(walletData, tokenAddress) {
 	console.log(`\n=======================================`);
 	console.log(`- Associating token...🟠`);
 
-	// ETHERS PROVIDER AND SIGNER
-	const provider = walletData[1];
-	const signer = provider.getSigner();
-
-	// EXECUTE FUNCTION BY CALLING HTS TOKEN AS A CONTRACT INSTANCE
 	let txHash;
 	let outText;
+
 	try {
 		const gasLimit = 1000000;
 
-		// CREATE CONTRACT INSTANCE FOR THE TOKEN ADDRESS
+		// Use correct provider and signer
+		const browserProvider = new ethers.BrowserProvider(window.ethereum);
+		const signer = await browserProvider.getSigner();
+
+		// Create contract instance
 		const myContract = new ethers.Contract(tokenAddress, abi, signer);
-		const associateTx = await myContract.associate({ gasLimit: gasLimit });
+		const associateTx = await myContract.associate({ gasLimit });
 		const associateRx = await associateTx.wait();
-		txHash = associateRx.transactionHash;
+
+		txHash = associateRx.hash;
 		outText = "🔗Token association complete ✅";
 		console.log(`- Done! Here's the transaction hash: \n${txHash} ✅`);
 	} catch (deployError) {
-		console.log(`- ${deployError.message.toString()}`);
+		console.log(`- ${deployError.message}`);
 	}
+
 	return [txHash, outText];
 }
+
 export default tokenAssociateFcn;
