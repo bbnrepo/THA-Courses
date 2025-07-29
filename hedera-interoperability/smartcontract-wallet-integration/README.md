@@ -1,5 +1,3 @@
-# [Click Here to Read the Full Tutorial](https://hedera.com/blog/how-to-create-a-smart-contract-app-on-hedera-using-solidity-react-js-metamask-and-ethers-js-a-simple-counter)
-
 # Intro
 In this step-by-step tutorial, you will create a simple counter dApp on the Hedera network using Solidity, React JS, MetaMask, and Ethers JS. The goal with this example is to help you understand the fundamentals of dApp development, making it easier for you to create more complex dApps in the future.
 
@@ -29,4 +27,8 @@ Once the cloning process is complete, navigate to the project folder using:
 Install all project dependencies. Dependencies are listed in the package.json file, so you can just use:
 ### `npm install` and `npm start`
 
+## You can also Refer To: https://hedera.com/blog/how-to-create-a-smart-contract-app-on-hedera-using-solidity-react-js-metamask-and-ethers-js-a-simple-counter
+
 ## You Should See:
+
+<img width="1919" height="1024" alt="Screenshot 2025-07-29 104305" src="https://github.com/user-attachments/assets/a165ae9e-c316-47cf-bd5c-156b211421ff" />
