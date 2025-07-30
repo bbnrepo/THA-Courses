@@ -1,73 +1,37 @@
-import React, { useState } from 'react';
-import MyGroup from "./components/MyGroup.jsx";
-import './App.css';
-import walletConnectFcn from "./components/hedera/walletConnect.js";
-import NFTDetails from "./components/hedera/nftdetails.js";
-import { associateToken } from "./components/hedera/associateToken";
-
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import AssociateToken from './pages/AssociateToken';
+import TransferToken from './pages/TransferToken';
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
-  
-
-  const [walletData, setWalletData] = useState();
-	const [account, setAccount] = useState();
-	const [network, setNetwork] = useState();
-	const [contractAddress, setContractAddress] = useState();
-
-  const [connectTextSt, setConnectTextSt] = useState("🔌 Connect here...");
-	const [contractTextSt, setContractTextSt] = useState();
-	const [executeTextSt, setExecuteTextSt] = useState();
-
-	const [connectLinkSt, setConnectLinkSt] = useState("");
-	const [contractLinkSt, setContractLinkSt] = useState();
-	const [executeLinkSt, setExecuteLinkSt] = useState();
-
-	async function connectWallet() {
-		if (account !== undefined) {
-			setConnectTextSt(`🔌 Account ${account} already connected ⚡ ✅`);
-		} else {
-			const wData = await walletConnectFcn();
-
-			let newAccount = wData[0];
-			let newNetwork = wData[2];
-			if (newAccount !== undefined) {
-				setConnectTextSt(`🔌 Account ${newAccount} connected ⚡ ✅`);
-				setConnectLinkSt(`https://hashscan.io/${newNetwork}/account/${newAccount}`);
-
-				setWalletData(wData);
-				setAccount(newAccount);
-				setNetwork(newNetwork);
-				setContractTextSt();
-			}
-		}
-	}
   return (
-    <div className="app-container">
-      {/* Left Navigation Bar */}
-      <aside className="sidebar">
-        <h2>NFT Dapp</h2>
-        <ul>
-   <li onClick={associateToken} style={{ cursor: "pointer" }}>
-    Associate NFT
-  </li>
-          <li>Transfer NFT</li>
-        </ul>
-      </aside>
+    <Router>
+      <div className="flex flex-col h-screen bg-gradient-to-br from-indigo-50 via-blue-50 to-gray-50 overflow-hidden">
+        <Navbar />
+        <div className="flex flex-1 overflow-hidden">
+          {/* Sidebar fixed width and scroll-independent */}
+          <div className="hidden md:block">
+            <Sidebar />
+          </div>
 
-      {/* Main Content Area */}
-      <div className="main-content">
-        {/* Top Bar */}
-        <header className="header">
-          <div />
-          <MyGroup fcn={connectWallet} buttonLabel={"Connect Wallet"} text={connectTextSt} link={connectLinkSt} />
-        </header>
-
-        {/* NFT Display Area */}
-        <div className="gallery-container">
-         {account && <NFTDetails account={account} />}
+          {/* Main content scrolls independently */}
+          <main className="flex-1 overflow-y-auto p-4 md:p-6">
+            <AnimatePresence mode="wait">
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/associate" element={<AssociateToken />} />
+                <Route path="/transfer" element={<TransferToken />} />
+              </Routes>
+            </AnimatePresence>
+          </main>
         </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
