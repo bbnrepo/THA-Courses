@@ -31,3 +31,5 @@ Install all project dependencies. Dependencies are listed in the package.json fi
 ### `npm install` and `npm start`
 
 ## You Should See:
+
+<img width="1919" height="1019" alt="Screenshot 2025-07-28 165755" src="https://github.com/user-attachments/assets/094ccf43-4dd8-4f89-9eb6-e08400ed4e8b" />
