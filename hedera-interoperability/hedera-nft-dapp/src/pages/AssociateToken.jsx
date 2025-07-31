@@ -8,15 +8,15 @@ const htsAbi = [
   "function associateToken(address account, address token) external returns (int64)",
 ];
 
-// Convert Hedera Token ID to EVM-compatible address
 function hederaTokenIdToEvmAddress(tokenId) {
   const parts = tokenId.split(".");
   const num = parseInt(parts[2], 10);
+
   const hex = num.toString(16).padStart(40, "0");
+  const add = `0x${hex}`;
+  console.log("EVMADDRESS", add);
   return `0x${hex}`;
 }
-
-// Get associated tokens from mirror node
 async function getAssociatedTokens(accountId) {
   const response = await fetch(
     `https://testnet.mirrornode.hedera.com/api/v1/accounts/${accountId}/tokens`
@@ -25,7 +25,6 @@ async function getAssociatedTokens(accountId) {
   console.log("Associated Tokens:", data.tokens);
   console.log("Account ID:", accountId);
   return data.tokens;
-  
 }
 
 const AssociateToken = () => {
