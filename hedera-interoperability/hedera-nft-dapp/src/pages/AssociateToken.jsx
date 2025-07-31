@@ -22,18 +22,20 @@ async function getAssociatedTokens(accountId) {
     `https://testnet.mirrornode.hedera.com/api/v1/accounts/${accountId}/tokens`
   );
   const data = await response.json();
+  console.log("Associated Tokens:", data.tokens);
+  console.log("Account ID:", accountId);
   return data.tokens;
+  
 }
 
 const AssociateToken = () => {
-  const [tokenId] = useState("0.0.5661109"); // hardcoded
+  const [tokenId] = useState(process.env.AssociateToken || "0.0.5661109");
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState(null);
   const [tokens, setTokens] = useState([]);
   const [userAccount, setUserAccount] = useState(null);
   const [showForm, setShowForm] = useState(false);
- 
-  // Connect wallet and fetch tokens on mount
+
   useEffect(() => {
     const connect = async () => {
       const [account] = await walletConnectFcn();
@@ -281,7 +283,7 @@ const AssociateToken = () => {
 
           {message && (
             <motion.div
-              className={`p-4 rounded-xl text-sm ${
+              className={`p-4 rounded-xl text-sm overflow-hidden ${
                 message.type === "success"
                   ? "bg-green-50 text-green-800 border border-green-100"
                   : "bg-red-50 text-red-800 border border-red-100"
