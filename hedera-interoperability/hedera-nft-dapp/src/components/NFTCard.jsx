@@ -46,7 +46,7 @@ const NFTCard = ({ serial, owner, image }) => {
           <p className="text-sm font-medium text-gray-700 truncate bg-gray-50 p-2 rounded-lg mt-1 font-mono">{owner}</p>
         </div>
         
-        <div className="mt-4 flex space-x-2">
+        {/* <div className="mt-4 flex space-x-2">
           <motion.button 
             className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-3 rounded-lg text-sm transition shadow-sm"
             whileHover={{ scale: 1.05 }}
@@ -61,7 +61,7 @@ const NFTCard = ({ serial, owner, image }) => {
           >
             Transfer
           </motion.button>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );
