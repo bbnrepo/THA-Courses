@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { BrowserProvider, Contract } from "ethers";
+import { ethers } from "ethers";
+import { BrowserProvider } from "ethers";
 import walletConnectFcn from "../components/hedera/walletConnect";
 
-const HTS_SYSTEM_CONTRACT = "0x167";
-const htsAbi = [
-  "function associateToken(address account, address token) external returns (int64)",
-];
+const htsAbi = [`function associate()`, `function dissociate()`];
 
 function hederaTokenIdToEvmAddress(tokenId) {
   const parts = tokenId.split(".");
@@ -28,7 +26,7 @@ async function getAssociatedTokens(accountId) {
 }
 
 const AssociateToken = () => {
-  const [tokenId] = useState(process.env.AssociateToken || "0.0.5661109");
+  const [tokenId] = useState(process.env.REACT_APP_TOKEN_ID);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState(null);
   const [tokens, setTokens] = useState([]);
@@ -49,16 +47,17 @@ const AssociateToken = () => {
   const associateToken = async (tokenId) => {
     const provider = new BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
-    const userAddress = await signer.getAddress();
+    // const userAddress = await signer.getAddress();
+    const gasLimit = 1000000;
 
     const tokenAddress = hederaTokenIdToEvmAddress(tokenId);
-    const contract = new Contract(tokenAddress, htsAbi, signer);
 
-    const tx = await contract.associateToken(userAddress, tokenAddress, {
-      gasLimit: 300000,
-    });
 
-    return await tx.wait();
+    const myContract = new ethers.Contract(tokenAddress, htsAbi, signer);
+		const associateTx = await myContract.associate({ gasLimit });
+		const associateRx = await associateTx.wait();
+    
+    return associateRx.hash;
   };
 
   const handleSubmit = async (e) => {
@@ -250,7 +249,7 @@ const AssociateToken = () => {
               value={tokenId}
               disabled
               className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-100 cursor-not-allowed text-gray-600"
-              placeholder="0.0.5661109"
+              placeholder={tokenId}
             />
             <p className="mt-1 text-xs text-gray-500">
               Token is fixed and cannot be changed.

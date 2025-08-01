@@ -6,8 +6,9 @@ import NFTCard from "../components/NFTCard";
 function Dashboard() {
   const [nfts, setNfts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const tokenId = "0.0.5661109";
-
+  const tokenId = process.env.REACT_APP_TOKEN_ID;
+  console.log("TOKEN",tokenId)
+  console.log(process.env);
   useEffect(() => {
     const fetchNFTs = async () => {
       try {

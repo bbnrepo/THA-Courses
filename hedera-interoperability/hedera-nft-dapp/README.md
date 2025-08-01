@@ -1,70 +1,101 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Hedera NFT DApp
 
-## Available Scripts
+This DApp showcases NFT interaction using the Hedera network. Users can connect their wallet (MetaMask), associate NFTs with their Hedera-compatible account, and fetch associated token details using the Mirror Node API.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🧩 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ✅ Connect Hedera-compatible EVM wallet (e.g., MetaMask)
+- 🎯 Associate NFTs to your account via smart contract
+- 🔍 Fetch and display associated NFTs using Mirror Node REST API
+- 💼 Clean, modular React components for easy integration
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js v16+ and npm installed
+- MetaMask wallet with an ECDSA key (Hedera Testnet-compatible)
+- A valid Hedera NFT Token ID (or use the demo one provided below)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Clone the Repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone <add-final-THA-repo-link>
+````
 
-### `npm run eject`
+### 2. Navigate to the Project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+cd hedera-interoperability/hedera-nft-dapp
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. Install Dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 4. Configure Environment
 
-## Learn More
+Create a `.env` file in the root directory and add the following:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```env
+REACT_APP_TOKEN_ID=<your-nft-token-id>
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you don’t have a token yet, use the demo token:
 
-### Code Splitting
+```env
+REACT_APP_TOKEN_ID=0.0.5157054
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 5. Start the Development Server
 
-### Analyzing the Bundle Size
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The app will be available at [http://localhost:3000](http://localhost:3000).
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📁 Project Structure
 
-### Advanced Configuration
+hedera-nft-dapp/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── hedera/
+│   │   │   ├── walletConnect.js       # Wallet connect logic
+│   ├── pages/
+│   │   ├── AssociateToken.jsx         # NFT association screen
+│   │   └── Dashboard.jsx              # Displays NFT cards 
+│   ├── App.js                         # App layout with sidebar and routing
+│   └── index.js
+├── .env
+└── package.json
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🧪 Example
 
-### Deployment
+Once the app is up:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* Click **Connect Wallet** (top-right)
+* On the left, use **Associate NFT** to call the transcation
+* View NFT cards and metadata directly in the main section
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🧠 Learn More
+
+* [Hedera Docs](https://docs.hedera.com/)
+* [Mirror Node API Reference](https://docs.hedera.com/hedera/mirror-node/mirror-node-api)
+
+

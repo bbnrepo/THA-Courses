@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   LayoutDashboard,
   Link2,
-  SendHorizonal,
+  // SendHorizonal,
   ChevronsLeft,
   ChevronsRight,
   BadgeDollarSign,
@@ -19,7 +19,7 @@ const navItems = [
 
 // Dummy token data
 const associatedTokens = [
-  { tokenId: "0.0.5661109", name: "Token ID" },
+  { tokenId: process.env.REACT_APP_TOKEN_ID, name: "Token ID" },
    
 ];
 
