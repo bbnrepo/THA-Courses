@@ -1,4 +1,3 @@
-
 # Hedera NFT DApp
 
 This DApp showcases NFT interaction using the Hedera network. Users can connect their wallet (MetaMask), associate NFTs with their Hedera-compatible account, and fetch associated token details using the Mirror Node API.
@@ -65,23 +64,29 @@ npm start
 The app will be available at [http://localhost:3000](http://localhost:3000).
 
 ---
+<img width="1919" height="1017" alt="Screenshot 2025-08-01 092559" src="https://github.com/user-attachments/assets/358c4e05-8ff4-4881-93ba-8e2631df00c0" />
+
+
+
+<img width="1919" height="1013" alt="Screenshot 2025-08-01 092638" src="https://github.com/user-attachments/assets/d7fab7b5-786a-4df0-a2d0-2217924410b2" />
 
 ## 📁 Project Structure
-
+```
 hedera-nft-dapp/
 ├── public/
 ├── src/
 │   ├── components/
 │   │   ├── hedera/
-│   │   │   ├── walletConnect.js       # Wallet connect logic
+│   │   │   ├── walletConnect.js   # Wallet connect logic
 │   ├── pages/
-│   │   ├── AssociateToken.jsx         # NFT association screen
-│   │   └── Dashboard.jsx              # Displays NFT cards 
-│   ├── App.js                         # App layout with sidebar and routing
+│   │   ├── AssociateToken.jsx     # NFT association screen
+│   │   └── Dashboard.jsx          # Displays NFT cards
+│   ├── App.js                     # App layout with sidebar and routing
 │   └── index.js
 ├── .env
 └── package.json
----
+```
+
 
 ## 🧪 Example
 
